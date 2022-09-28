@@ -1,0 +1,5 @@
+getdata/credentials.py
+getdata/env
+server/node_modules
+server/userScripts
+server/.env

@@ -1,0 +1,29 @@
+const db = require('db')
+stockbot = {
+    data: 'data',
+    portfolio: 'portfolio',
+    cash: 'cash',
+    userid: 'userid',
+    buy: (stock, amount) => {
+        if (data.price[stock]['price'] * amount > cash) return false;
+        else {
+            cash -= data.price[stock]['price'] * amount 
+            portfolio[stock] += amount
+            return true
+        }
+    },
+    sell: (stock, amount) => {
+        if (amount > portfolio[stock]) return false;
+        else {
+            portfolio -= amount
+            cash += data.price[stock]['price'] * amount
+            return true
+        }
+    },
+    update: async ()=> {
+        portfolio['cash'] = cash
+        db.updatePortfolio(userid, portfolio)
+    }
+}
+
+module.exports = stockbot
